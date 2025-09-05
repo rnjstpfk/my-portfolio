@@ -1,10 +1,102 @@
-.projects {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
+.projects-section {
+  padding: 60px 10%;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-  gap: 1.5rem;
+
+/* 제목 */
+.projects-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* === 프로젝트 그리드 레이아웃 === */
+.projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* === 카드 공통 === */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: inherit; /* 기본 파란 링크 제거 */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* 이미지 */
+.project-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 내용 */
+.project-content {
+  padding: 16px;
+}
+.project-content h3 {
+  font-size: 1.2rem;
+  margin: 0 0 5px;
+}
+.project-content p {
+  font-size: 0.95rem;
+  margin: 8px 0 12px;
+}
+
+/* 기술 태그 */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tech-list span {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+/* === 다크모드 === */
+.projects-section.dark {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+.projects-section.dark h2 { color: #fff; }
+.projects-section.dark .project-card {
+  background: #222;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.projects-section.dark .project-content h3 { color: #fff; }
+.projects-section.dark .project-content p { color: #ccc; }
+.projects-section.dark .tech-list span {
+  background: rgba(255,255,255,0.07);
+  color: #9ad4ff;
+}
+
+/* === 라이트모드 === */
+.projects-section.light {
+  background: #fafafa;
+  color: #222;
+}
+.projects-section.light h2 { color: #222; }
+.projects-section.light .project-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.projects-section.light .project-content h3 { color: #111; }
+.projects-section.light .project-content p { color: #444; }
+.projects-section.light .tech-list span {
+  background: rgba(0,0,0,0.05);
+  color: #0077ff;
 }

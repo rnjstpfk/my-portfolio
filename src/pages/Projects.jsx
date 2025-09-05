@@ -1,40 +1,64 @@
 import React from 'react';
-import ProjectCard from '../components/ProjectCard';
+import { Link } from "react-router-dom"; 
 import './Projects.css';
 
 const projects = [
   {
     id: 1,
-    title: 'React Art Gallery',
-    img: '/images/art-gallery.jpg',
-    desc: 'React와 SCSS를 사용하여 구현한 반응형 아트 갤러리 웹사이트. Swiper 슬라이더와 검색 기능이 포함되어 있습니다.',
-    tech: ['React', 'SCSS', 'Framer Motion'],
-    link: 'https://github.com/sera/art-gallery'
+    title: "Portfolio Website",
+    description: "React + Firebase 포트폴리오",
+    tech: ["React", "API" ,"Firebase"],
+    image: "/images/portfolio.jpg",
+    link: "https://team1-2c9b9.web.app"  // 외부 배포 주소
   },
   {
     id: 2,
-    title: 'Portfolio Website',
-    img: '/images/portfolio.jpg',
-    desc: '개인 포트폴리오 사이트. Vite + React 기반으로 제작했으며 Firebase Auth 연동을 포함합니다.',
-    tech: ['React', 'Firebase', 'Vite'],
-    link: 'https://sera-portfolio.netlify.app'
+    title: "Movie Finder App",
+    description: "TMDB API 영화 검색",
+    tech: ["React", "API"],
+    image: "/images/movie.png",
+    link: "https://movie-fxvtkywmt-seras-projects-52241270.vercel.app/"
   },
   {
     id: 3,
-    title: 'E-commerce UI',
-    img: '/images/shop-ui.jpg',
-    desc: '가상의 쇼핑몰 UI를 구현. 장바구니와 필터링 기능을 추가하여 사용자 경험을 강화했습니다.',
-    tech: ['React', 'Context API', 'Styled Components'],
-    link: 'https://github.com/sera/shop-ui'
+    title: "Weather Dashboard",
+    description: "OpenWeather + Chart.js",
+    tech: ["React", "Swiper"],
+    image: "/images/weather.png",
+    link: "https://rnjstpfk.github.io/shop2/"
+  },
+  {
+    id: 4,
+    title: "OK Drugs Clone",
+    description: "OK Drugs 브랜드 웹사이트 클론",
+    tech: ["React", "SCSS"],
+    image: "/images/okdrugs.png",
+    link: "https://ok1-phi.vercel.app/"   // ← 여기 진짜 배포 링크
   }
 ];
 
-export default function Projects() {
+
+
+
+export default function Projects({ theme }) {
   return (
-    <section className="projects">
-      <h2>Projects</h2>
-      <div className="project-grid">
-        {projects.map(p => <ProjectCard key={p.id} project={p} />)}
+    <section className={`projects-section ${theme}`}>
+      <h2>Featured Projects</h2>
+      <div className="projects-grid">
+        {projects.map((p) => (
+          <a href={p.link} className="project-card" key={p.id}>
+            <div className="project-img">
+              <img src={p.image} alt={p.title} />
+            </div>
+            <div className="project-content">
+              <h3>{p.title}</h3>
+              <p>{p.description}</p>
+              <div className="tech-list">
+                {p.tech.map((t, i) => <span key={i}>{t}</span>)}
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
   );

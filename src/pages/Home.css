@@ -1,154 +1,99 @@
-/* App.css */
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f8f7f4;
-  color: #333;
-  min-height: 100vh;
+/* ✅ body 배경 제어 */
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.light {
+  background: #f6f8fa;
+  color: #222;
+}
+
+/* === Hero === */
+.hero {
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-header.header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 3rem;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #a8734f;
-}
-
-.nav-list {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-list li a {
-  color: #7a6e5a;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-list li a:hover {
-  color: #a8734f;
-}
-
-main {
-  flex-grow: 1;
-  padding: 4rem 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-footer {
-  background-color: #222;
-  color: #fff;
+  justify-content: center;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  margin: 0;
+  padding: 40px 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+  background: transparent;   /* ✅ hero 배경은 투명 */
 }
 
-/* Home.css */
-.hero {
-  text-align: center;
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #c1dffb, #89b3f9);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(137, 179, 249, 0.5);
-  color: white;
-  max-width: 700px;
-  margin: 0 auto;
+/* 다크모드 */
+.hero.dark {
+  color: #e0e0e0;
 }
+.hero.dark h1 { color: #fafafa; }
+.hero.dark p { color: #bcbcbc; }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* 라이트모드 */
+.hero.light {
+  color: #222;
 }
+.hero.light h1 { color: #222; }
+.hero.light p { color: #555; }
 
-.hero p {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-
+/* === 버튼 === */
 .cta {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 12px;
+  margin: 20px 0;
 }
-
-.btn-primary,
-.btn-secondary {
-  padding: 0.8rem 2rem;
+.btn-primary, .btn-secondary {
+  padding: 10px 22px;
   border-radius: 30px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 500;
   text-decoration: none;
-  display: inline-block;
-  user-select: none;
-}
-
-.btn-primary {
-  background-color: #a8734f;
-  color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
   border: none;
 }
 
-.btn-primary:hover {
-  background-color: #8a613f;
-}
+/* 버튼 다크모드 */
+.hero.dark .btn-primary { background: #1e90ff; color: #fff; }
+.hero.dark .btn-primary:hover { box-shadow: 0 0 8px rgba(30,144,255,0.6); }
+.hero.dark .btn-secondary { background: #6c63ff; color: #fff; }
+.hero.dark .btn-secondary:hover { box-shadow: 0 0 8px rgba(108,99,255,0.5); }
 
-.btn-secondary {
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-}
+/* 버튼 라이트모드 */
+.hero.light .btn-primary { background: #0077ff; color: #fff; }
+.hero.light .btn-primary:hover { background: #005de0; }
+.hero.light .btn-secondary { background: #6a5acd; color: #fff; }
+.hero.light .btn-secondary:hover { background: #5848b5; }
 
-.btn-secondary:hover {
-  background-color: white;
-  color: #a8734f;
-}
-
+/* === 태그 === */
 .tag-list {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
   list-style: none;
-  font-weight: 600;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin-top: 10px;
 }
-
 .tag-list li {
-  background-color: rgba(255 255 255 / 0.3);
-  padding: 0.3rem 1rem;
+  padding: 6px 14px;
   border-radius: 20px;
-  color: white;
-  user-select: none;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
 }
-
-.tag-list li:hover {
-  background-color: rgba(255 255 255 / 0.6);
+.hero.dark .tag-list li {
+  background: rgba(255,255,255,0.05);
+  color: #9ad4ff;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.hero.light .tag-list li {
+  background: rgba(0,0,0,0.05);
+  color: #005de0;
+  border: 1px solid rgba(0,0,0,0.05);
 }

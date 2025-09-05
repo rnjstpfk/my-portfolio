@@ -1,11 +1,21 @@
-// Home.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Home.css';
 
-export default function Home() {
+export default function Home({ theme }) {
+  // ✅ body에 테마 클래스(light/dark) 적용
+  useEffect(() => {
+    document.body.classList.remove('dark', 'light');
+    document.body.classList.add(theme);
+  }, [theme]);
+
   return (
-    <section className="hero">
+    <motion.section 
+      className={`hero ${theme}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -13,6 +23,7 @@ export default function Home() {
       >
         Creative Frontend Developer
       </motion.h1>
+
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -33,6 +44,6 @@ export default function Home() {
         <li>#UX디자인</li>
         <li>#프론트끝판왕</li>
       </ul>
-    </section>
+    </motion.section>
   );
 }

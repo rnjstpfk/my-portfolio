@@ -5,6 +5,95 @@
   text-align: center;
 }
 
+/* App.css */
+/* ==== 전체 ==== */
+.app.dark { background: linear-gradient(135deg, #0f0f17, #1a1a24); color: #e0e0e0; }
+.app.light { background: #f4f6fb; color: #222; transition: 0.4s; }
+.page { padding: 80px 10%; min-height: 60vh; }
+
+/* ==== Header ==== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+.header.dark { background: rgba(20,20,30,0.5); }
+.header.light { background: rgba(255,255,255,0.6); }
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.header.dark nav a { color: #ddd; }
+.header.light nav a { color: #333; }
+.header nav a:hover { color: #00d4ff; text-shadow: 0 0 5px #00d4ff; }
+.theme-toggle { margin-left: 20px; padding: 6px 12px; border-radius: 20px; border: none; cursor: pointer; }
+
+/* ==== Hero ==== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #00d4ff, #9b5bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+.hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.85; }
+
+/* 버튼 */
+.cta .btn-primary, .cta .btn-secondary {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin: 5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary { background: #00d4ff; color: #000; }
+.btn-primary:hover { box-shadow: 0 0 15px #00d4ff; transform: scale(1.05); }
+.btn-secondary { background: #9b5bff; color: #fff; }
+.btn-secondary:hover { box-shadow: 0 0 15px #9b5bff; transform: scale(1.05); }
+
+/* ==== Projects ==== */
+.projects-section { padding: 60px 10%; }
+.projects-section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.project-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  color: inherit;
+}
+.project-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 6px 20px rgba(0,0,0,0.3); border: 1px solid #00d4ff; }
+
+/* 태그 */
+.tech-list span { font-size: 0.8rem; padding: 4px 10px; border-radius: 30px; }
+.projects-section.dark .tech-list span { background: rgba(255,255,255,0.1); color: #00d4ff; }
+.projects-section.light .tech-list span { background: rgba(0,0,0,0.05); color: #0077ff; }
+
+/* ==== Footer ==== */
+.footer { text-align: center; padding: 20px; opacity: 0.7; font-size: 0.9rem; }
+.footer.dark { background: rgba(20,20,30,0.6); }
+.footer.light { background: rgba(255,255,255,0.4); }
+
 .logo {
   height: 6em;
   padding: 1.5em;
